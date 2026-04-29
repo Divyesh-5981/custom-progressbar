@@ -48,6 +48,14 @@ const ProgressBar = () => {
 		setIsRunning(true);
 	};
 
+	const handleResumeTimer = () => {
+		setIsRunning(true);
+	};
+
+	const handlePauseTimer = () => {
+		setIsRunning(false);
+	}
+
 	return (
 		<>
 			<div className="progressbar-container">
@@ -66,6 +74,12 @@ const ProgressBar = () => {
 				>
 					Start
 				</button>
+				<button onClick={handlePauseTimer} className="cta-button">
+					Pause
+				</button>
+				<button onClick={handleResumeTimer} className="cta-button">
+					Resume
+				</button>
 				<button onClick={handleResetTimer} className="cta-button">
 					Reset
 				</button>
@@ -74,7 +88,7 @@ const ProgressBar = () => {
 				<div
 					className="progress-fill"
 					style={{
-						width: isRunning ? "100%" : "0%",
+						width: `${width}%`,
 						transition: isRunning ? `width linear ${duration}s` : "none",
 					}}
 				></div>
